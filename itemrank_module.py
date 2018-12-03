@@ -18,6 +18,10 @@ def itemRank(A, alpha, v, m):
 
 #--------------------TESTING---------------------------------------
 a = np.array([[1,2,3],[4,5,6]], np.int32)
-print(a)
+print("Print test array\n",a)
 b = np.matrix([[1,2,3],[7,8,9]], np.int32)
-print(b)
+print("Print test Matrix\n",b)
+
+print("Print Matrix transpose\n",b.T)
+
+print("Print multiplicative inverse of invertible matrix", b.I)
