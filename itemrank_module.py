@@ -1,11 +1,11 @@
-import numpy as np
+import numpy as np # Shift+F1 pour ouvrir la doc
 
 #A = np.matrix / alpha = float / v = np.array / m = bool / return np.matrix
 def itemRank(A, alpha, v, m):
     #TODO verifier valeur en param sont corrects
     print("Verification des variables paramètre")
 
-    x = np.ndarray
+    x = np.array()
     if m:
         print("Resolution par recurrence")
         #TODO Score par recurrence
@@ -15,3 +15,9 @@ def itemRank(A, alpha, v, m):
         #TODO Score par inversion matricielle
 
     return x #vecteur des scores d'importance des noeuds
+
+#--------------------TESTING---------------------------------------
+a = np.array([[1,2,3],[4,5,6]], np.int32)
+print(a)
+b = np.matrix([[1,2,3],[7,8,9]], np.int32)
+print(b)
