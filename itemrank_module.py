@@ -9,15 +9,14 @@ def itemRank(A, alpha, v, m):
     if (alpha > 0 or alpha < 1):
         raise ValueError("alpha doit être entre 0 et 1!!")
 
-
     if m:
         print("Resolution par recurrence")
         #TODO Score par recurrence
         cpt = 0
-        x = copy(v)
+        x = copy.deepcopy(v)
         while(1): #Tant que non convergence
             #Calculer au temps cpt la valeur du vecteur x
-            x= []
+            x = []
     else :
         print("resolution par inversion matricielle")
         #TODO Score par inversion matricielle
@@ -25,13 +24,16 @@ def itemRank(A, alpha, v, m):
 
     return x #vecteur des scores d'importance des noeuds
 
+
+
 #Read a specific CSV file (fn file name in parameter) from the project and transform into np.array
 def read_csv_toarray(fn):
     arr = []
     with open(fn) as csvDataFile:
         csvReader = csv.reader(csvDataFile)
         for row in csvReader:
-            arr.append(row)
+            for col in row:
+                arr.append(int(col))
 
     return arr
 
