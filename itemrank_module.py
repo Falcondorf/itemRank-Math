@@ -4,7 +4,6 @@ from copy import copy
 
 #A = np.matrix / alpha = float / v = np.array / m = bool / return np.matrix
 def itemRank(A, alpha, v, m):
-    #TODO verifier valeur en param sont corrects
     print("Verification des variables paramètre")
     if (alpha > 0 or alpha < 1):
         raise ValueError("alpha doit être entre 0 et 1!!")
@@ -12,11 +11,12 @@ def itemRank(A, alpha, v, m):
     if m:
         print("Resolution par recurrence")
         #TODO Score par recurrence
-        cpt = 0
+        P = np.matrix() #Matrice de prrobabilite de transition
+        I = np.identity(P[0].size) #Identity matrix with matrix A size
+        convergent = (1-alpha) * (I - alpha * P.T)**(-1) * v
         x = copy.deepcopy(v)
         while(1): #Tant que non convergence
-            #Calculer au temps cpt la valeur du vecteur x
-            x = []
+            x = alpha * P.T * x  + (1-alpha) * v
     else :
         print("resolution par inversion matricielle")
         #TODO Score par inversion matricielle
@@ -43,11 +43,15 @@ a = np.array([[1,2,3],[4,5,6]], np.int32) #int32 pas necessaire... Juste indicat
 print("Print test array\n",a)
 print("Print element at [1,1]",a[1,1])
 print("Print element at [1,0]", a[1,0])
+
 b = np.matrix([[1,2,3],[7,8,9]])
 print("Print test Matrix\n",b)
+print("Matrix length=", b[0].size)
 
 print("Print Matrix transpose\n",b.T)
 
-print("Print multiplicative inverse of invertible matrix", b.I)
+print("Print multiplicative inverse of invertible matrix\n", b.I)
 
-print(read_csv_toarray("./Personnalisation_Student12.csv"))
+print("Matrix identity size 5\n", np.identity(5))
+
+print("Read CSV file 12\n",read_csv_toarray("./Personnalisation_Student12.csv"))
