@@ -9,3 +9,8 @@ def test_arrays1():
 
 def test_csvReader():
     assert read_csv_toarray("./Personnalisation_Student12.csv") == [1,0,0,0,1,0,0,0,1,0]
+
+def test_calculate_D():
+    A = np.matrix([[0,1,1],[1,0,1],[1,1,0]])
+    D = np.matrix([[2,0,0],[0,2,0],[0,0,2]])
+    assert np.array_equal(calculate_D(A), D)
