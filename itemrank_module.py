@@ -18,12 +18,14 @@ def calculate_D(A):
 #Lecture d'un ficheir CSV (fn en paramètre) du projet et le transforme en np.array
 def read_csv_toarray(fn):
     arr = []
+    print("Lecture du fichier CSV...")
     with open(fn) as csvDataFile:
         csvReader = csv.reader(csvDataFile)
         for row in csvReader:
             for col in row:
                 arr.append(int(col))    #N'ajoute jamais qu'une seule ligne (Attention si le fichier CSV est incorrect)
 
+    print("Vecteur cree...")
     return arr
 
 
